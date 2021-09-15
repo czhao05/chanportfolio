@@ -13,3 +13,18 @@ SELECT state,
   ORDER BY total_number DESC
   
   
+
+/* Write a query that groups the schools by names that start with A through M, and that start with N through Z. Displays the number of students in each school and which group the school is in.
+Show the results in alphbetical order using school names */
+
+
+
+SELECT CASE WHEN school_name < 'n' THEN 'A-M'
+            WHEN school_name >= 'n' THEN 'N-Z'
+            ELSE NULL END AS school_group,
+            school_name,
+            COUNT(2) AS students_number
+  FROM benn.college_football_players
+  GROUP BY 2
+  ORDER BY 2
+
