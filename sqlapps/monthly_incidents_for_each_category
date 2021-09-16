@@ -1,0 +1,28 @@
+/* Write a query that displays the average number of monthly incidents for each category. Show the results from the highets number of incidents to the lowest. */
+
+Way 1:
+
+SELECT sub.category, AVG(sub.incidents)
+FROM (
+      SELECT LEFT(date,2) as month, category, COUNT(incidnt_num) AS incidents
+      FROM tutorial.sf_crime_incidents_cleandate
+      GROUP BY 1,2
+      ) sub
+GROUP BY 1
+ORDER BY 2 DESC
+
+
+Way 2:
+SELECT sub.category,
+       AVG(sub.incidents) AS avg_incidents_per_month
+  FROM (
+        SELECT EXTRACT('month' FROM cleaned_date) AS month,
+               category,
+               COUNT(1) AS incidents
+          FROM tutorial.sf_crime_incidents_cleandate
+         GROUP BY 1,2
+       ) sub
+ GROUP BY 1
+ Order BY 2 DESC
+ 
+ 
