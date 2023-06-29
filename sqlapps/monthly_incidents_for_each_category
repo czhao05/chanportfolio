@@ -1,6 +1,6 @@
 /* Write a query that displays the average number of monthly incidents for each category. Show the results from the highets number of incidents to the lowest. */
 
-Way 1:
+Way 1: 
 
 SELECT sub.category, AVG(sub.incidents)
 FROM (
