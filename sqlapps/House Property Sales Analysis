@@ -4,17 +4,26 @@ SELECT
   EXTRACT (DAY FROM datesold) AS day,
   SUM(sales) AS total_sales
 FROM 
-  row_sales;
+  row_sales
 GROUP BY
-  day;
+  day
 ORDER BY
   total_sales DESC
 LIMIT 1;
   
 
-/* Which postal code corresponds with the highest average price per sale? */
+/* Which postal code corresponds with the three lowest average price per sale? */
 
-
+SELECT 
+  postal_code, 
+  AVG(price) as average_p
+FROM
+  row_sales
+GROUP BY 
+  postal_code
+ORDER BY 
+  average_p
+LIMIT 3;
 
 
 
