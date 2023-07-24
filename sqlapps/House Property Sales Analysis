@@ -25,11 +25,3 @@ ORDER BY
   average_p
 LIMIT 3;
 
-
-
-/* Which year has the lowest number of sales? */
-
-
-
-
-/* What are the top 6 postal codes have the highest price? */
