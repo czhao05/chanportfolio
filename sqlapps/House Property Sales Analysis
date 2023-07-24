@@ -1,7 +1,16 @@
 /* Which day has the hightest number of sales? */
 
-
-
+SELECT 
+  EXTRACT (DAY FROM datesold) AS day,
+  SUM(sales) AS total_sales
+FROM 
+  row_sales;
+GROUP BY
+  day;
+ORDER BY
+  total_sales DESC
+LIMIT 1;
+  
 
 /* Which postal code corresponds with the highest average price per sale? */
 
